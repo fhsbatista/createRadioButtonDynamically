@@ -10,12 +10,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val radioGroup: RadioGroup by lazy {
-        val radioGroup = RadioGroup(this)
-        radioGroup.orientation = LinearLayout.VERTICAL
-        radioGroup
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -31,7 +25,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupRadioButtons(list: List<RadioButtonItem>) {
-        containerRg.addView(radioGroup)
         list.forEach { addRadioButton(it) }
     }
 
@@ -39,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         val newRadioButton = RadioButton(this)
         newRadioButton.id = View.generateViewId()
         newRadioButton.text = item.text
-        radioGroup.addView(newRadioButton)
+        containerRg.addView(newRadioButton)
     }
 }
 
